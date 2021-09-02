@@ -4,6 +4,7 @@ cors = require('cors');
 require('dotenv').config();
 const { MongoClient } = require('mongodb');
 const app = express();
+const port = 5000;
 const fileUpload = require('express-fileupload');
 const { ObjectId } = require('mongodb');
 const uri = `mongodb+srv://${process.env.DB_USER}:${process.env.DB_PASS}@cluster0.lieed.mongodb.net/${process.env.DB_NAME}?retryWrites=true&w=majority`;
@@ -138,8 +139,9 @@ client.connect(err => {
 
 
 
-const port = 5000;
 app.get('/', (req, res) => {
     res.send('hello it is working')
 })
-app.listen(process.env.PORT || port);
+app.listen(process.env.PORT || port, function () {
+    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
