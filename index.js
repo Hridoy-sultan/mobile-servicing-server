@@ -142,6 +142,4 @@ client.connect(err => {
 app.get('/', (req, res) => {
     res.send('hello it is working')
 })
-app.listen(process.env.PORT || port, function () {
-    console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-});
+app.listen(process.env.PORT || port);
