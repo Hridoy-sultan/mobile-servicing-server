@@ -135,11 +135,10 @@ client.connect(err => {
     })
 
 
+    app.get('/', (req, res) => {
+        res.send('hello it is working')
+    })
+
 });
 
-
-
-app.get('/', (req, res) => {
-    res.send('hello it is working')
-})
 app.listen(process.env.PORT || port);
