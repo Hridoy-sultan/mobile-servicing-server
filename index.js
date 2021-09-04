@@ -14,7 +14,6 @@ app.use(cors());
 app.use(express.static('review'));
 app.use(fileUpload());
 
-// const uri = "mongodb+srv://mobileServicing:<password>@cluster0.lieed.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
 client.connect(err => {
@@ -100,9 +99,9 @@ client.connect(err => {
 
     app.get('/addBooking', (req, res) => {
         bookingCollection.find({})
-            .toArray((err, documents) => {
+            .toArray((errrr, documents) => {
                 res.send(documents)
-                console.log('err', err);
+                console.log('err', errrr);
 
             })
     })
@@ -118,9 +117,9 @@ client.connect(err => {
 
     app.get('/addService', (req, res) => {
         serviceCollection.find({})
-            .toArray((err, documents) => {
+            .toArray((errr, documents) => {
                 res.send(documents)
-                console.log('err', err);
+                console.log('err', errr);
 
             })
     })
